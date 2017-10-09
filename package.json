@@ -4,7 +4,7 @@
   "description": "http://www.react.express/",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --env.dev",
+    "dev": "webpack-dev-server --env.dev && nodemon server/server.js",
     "build": "webpack"
   },
   "author": "",
@@ -16,12 +16,19 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "nodemon": "^1.12.1",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "knex": "^0.13.0",
+    "pg": "^7.3.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "dotenv": "^4.0.0",
+    "jsonwebtoken": "^7.4.3"
   }
 }

@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 const styles = {
   app: {
     paddingTop: 40,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 }
 
 class App extends Component {
