@@ -1,24 +1,23 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-const PORT = process.env.PORT || 4444;
 const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const db = require('knex')(config);
 
-
+const PORT = process.env.PORT || 4444;
 
 app.set('port', PORT);
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended:true }));
 
-app.get('/api/v1/users', () => (req,res) => {
-	console.log("scarlet: ", req.body)
+app.get('/', (req,res) => {
 	db('users')
 	.select('*')
-	.then(data => {
-		res.status(200).json({ data })
-	})
+	.then(data => res.status(200).json({ data }))
 	.catch(error => res.status(500).json({ error }))
 })
 
