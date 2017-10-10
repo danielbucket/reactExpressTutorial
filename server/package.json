@@ -1,0 +1,20 @@
+{
+  "name": "bltWebServer",
+  "version": "1.0.0",
+  "description": "",
+  "author": "bucket",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "devDepenecies": {
+   "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.13.0",
+    "pg": "^7.3.0"
+  }
+}
