@@ -11,12 +11,15 @@ const PORT = process.env.PORT || 8000;
 
 app.set('port', PORT);
 
-app.use(bodyParser.json());
+app.use(bodyParser.json('../bundle.js'));
 app.use(bodyParser.urlencoded({ extended:true }));
+
+app.use(express.static(path.resolve(__dirname, './')));
+app.use(bodyParser.json());
 
 app.get('/api/v1/users', (req,res) => {
 	console.log('hit')
-	
+
 	db('users')
 	.select('*')
 	.then(data => res.status(200).json({ data }))
