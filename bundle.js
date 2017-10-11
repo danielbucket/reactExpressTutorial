@@ -1678,10 +1678,35 @@ var App = function (_Component) {
   function App() {
     __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, App);
 
-    return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (App.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(App)).apply(this, arguments));
+    var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (App.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(App)).call(this));
+
+    _this.state = {
+      name: '',
+      email: '',
+      password: '',
+      users: {}
+    };
+    _this.getUsers = _this.getUsers.bind(_this);
+    return _this;
   }
 
   __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getUsers();
+    }
+  }, {
+    key: 'getUsers',
+    value: function getUsers() {
+      fetch('api/v1/users').then(function (resp) {
+        return resp.json();
+      }).then(function (users) {
+        console.log(users);
+      }).catch(function (error) {
+        return console.log(error);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(

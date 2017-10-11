@@ -7,14 +7,16 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../knexfile')[env];
 const db = require('knex')(config);
 
-const PORT = process.env.PORT || 4444;
+const PORT = process.env.PORT || 8000;
 
 app.set('port', PORT);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
 
-app.get('/', (req,res) => {
+app.get('/api/v1/users', (req,res) => {
+	console.log('hit')
+	
 	db('users')
 	.select('*')
 	.then(data => res.status(200).json({ data }))
